@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { Heart, BookOpen, ExternalLink, Star } from 'lucide-react';
+import { Heart, BookOpen, ExternalLink, Star, Play } from 'lucide-react';
 import { terms } from '../data/terms';
 
 interface FeaturedTermsProps {
   searchTerm: string;
   selectedCategory: string;
+  onStartQuiz?: (termId: number, termTitle: string) => void;
 }
 
-const FeaturedTerms: React.FC<FeaturedTermsProps> = ({ searchTerm, selectedCategory }) => {
+const FeaturedTerms: React.FC<FeaturedTermsProps> = ({ 
+  searchTerm, 
+  selectedCategory, 
+  onStartQuiz 
+}) => {
   const [favorites, setFavorites] = useState<Set<number>>(new Set());
   const [expandedTerm, setExpandedTerm] = useState<number | null>(null);
 
@@ -109,7 +114,7 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({ searchTerm, selectedCateg
                 </p>
               </div>
 
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-between mb-4">
                 <button
                   onClick={() => setExpandedTerm(expandedTerm === term.id ? null : term.id)}
                   className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-medium transition-colors"
@@ -124,6 +129,17 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({ searchTerm, selectedCateg
                   ))}
                 </div>
               </div>
+
+              {/* Quiz Button */}
+              {onStartQuiz && (
+                <button
+                  onClick={() => onStartQuiz(term.id, term.title)}
+                  className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-teal-500 to-blue-500 text-white rounded-xl hover:from-teal-600 hover:to-blue-600 transition-all mb-4"
+                >
+                  <Play className="w-4 h-4" />
+                  <span>Take Quiz</span>
+                </button>
+              )}
 
               {expandedTerm === term.id && (
                 <div className="mt-4 pt-4 border-t border-gray-100">
