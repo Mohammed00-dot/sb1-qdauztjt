@@ -1,17 +1,26 @@
 import React, { useState } from 'react';
-import { Brain, Star, User, BookOpen, Home, Menu, X } from 'lucide-react';
+import { Brain, Star, User, BookOpen, Home, Menu, X, AlertTriangle } from 'lucide-react';
 
 interface HeaderProps {
   onShowProfile: () => void;
+  onShowAuth: (mode: 'login' | 'register') => void;
   onNavigate: (view: 'home' | 'learning-paths') => void;
   currentView: 'home' | 'learning-paths';
 }
 
-const Header: React.FC<HeaderProps> = ({ onShowProfile, onNavigate, currentView }) => {
+const Header: React.FC<HeaderProps> = ({ onShowProfile, onShowAuth, onNavigate, currentView }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header className="bg-white/90 backdrop-blur-md border-b border-purple-100 sticky top-0 z-50 shadow-sm">
+      {/* Development Banner */}
+      <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 px-4">
+        <div className="max-w-7xl mx-auto flex items-center justify-center space-x-2 text-sm font-medium">
+          <AlertTriangle className="w-4 h-4" />
+          <span>🚧 DEVELOPMENT MODE - Many features are not yet functional 🚧</span>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -55,12 +64,15 @@ const Header: React.FC<HeaderProps> = ({ onShowProfile, onNavigate, currentView 
           
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center space-x-3">
-            <button className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-pink-400 text-white rounded-xl hover:from-orange-500 hover:to-pink-500 transition-all duration-200 shadow-lg shadow-orange-200 font-medium">
+            <button 
+              onClick={() => alert('Favorites feature coming soon!')}
+              className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-pink-400 text-white rounded-xl hover:from-orange-500 hover:to-pink-500 transition-all duration-200 shadow-lg shadow-orange-200 font-medium"
+            >
               <Star className="w-4 h-4" />
               <span>Favorites</span>
             </button>
             <button 
-              onClick={onShowProfile}
+              onClick={() => onShowAuth('login')}
               className="w-10 h-10 bg-gradient-to-r from-purple-100 to-blue-100 rounded-xl flex items-center justify-center hover:from-purple-200 hover:to-blue-200 transition-all duration-200 shadow-md"
             >
               <User className="w-5 h-5 text-purple-600" />
@@ -109,19 +121,25 @@ const Header: React.FC<HeaderProps> = ({ onShowProfile, onNavigate, currentView 
                 <span>Learning Paths</span>
               </button>
               <div className="border-t border-gray-200 pt-2 mt-2">
-                <button className="w-full flex items-center space-x-3 px-4 py-3 bg-gradient-to-r from-orange-400 to-pink-400 text-white rounded-xl font-medium">
+                <button 
+                  onClick={() => {
+                    alert('Favorites feature coming soon!');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full flex items-center space-x-3 px-4 py-3 bg-gradient-to-r from-orange-400 to-pink-400 text-white rounded-xl font-medium"
+                >
                   <Star className="w-5 h-5" />
                   <span>My Favorites</span>
                 </button>
                 <button 
                   onClick={() => {
-                    onShowProfile();
+                    onShowAuth('login');
                     setIsMobileMenuOpen(false);
                   }}
                   className="w-full flex items-center space-x-3 px-4 py-3 text-gray-600 hover:bg-gray-100 rounded-xl mt-2"
                 >
                   <User className="w-5 h-5" />
-                  <span>My Profile</span>
+                  <span>Sign In</span>
                 </button>
               </div>
             </div>
