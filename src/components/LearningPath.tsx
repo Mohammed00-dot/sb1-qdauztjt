@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Lock, Play, Star, Trophy, ArrowRight } from 'lucide-react';
+import { CheckCircle, Lock, Play, Star, Trophy, ArrowRight, AlertCircle } from 'lucide-react';
 
 interface PathStep {
   id: number;
@@ -228,6 +228,16 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
     }
   };
 
+  const handleStepClick = (stepId: number, status: PathStep['status']) => {
+    if (status === 'locked') {
+      alert('This step is locked! Complete previous steps first.');
+      return;
+    }
+    
+    alert(`Step ${stepId} clicked! This will open the learning content when backend is connected.`);
+    onStartStep(stepId);
+  };
+
   if (selectedPath) {
     const path = learningPaths.find(p => p.id === selectedPath);
     if (!path) return null;
@@ -237,7 +247,7 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
         <div className="mb-8">
           <button
             onClick={() => setSelectedPath(null)}
-            className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 mb-4"
+            className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 mb-4 transition-colors"
           >
             <ArrowRight className="w-4 h-4 rotate-180" />
             <span>Back to Learning Paths</span>
@@ -265,6 +275,17 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
               <span>{Math.round((path.completedSteps / path.totalSteps) * 100)}%</span>
             </div>
           </div>
+
+          {/* Development Notice */}
+          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mt-4">
+            <div className="flex items-center space-x-2 text-orange-700">
+              <AlertCircle className="w-5 h-5" />
+              <span className="font-medium">Development Preview</span>
+            </div>
+            <p className="text-sm text-orange-600 mt-1">
+              Learning path progress will be saved when backend is connected!
+            </p>
+          </div>
         </div>
 
         <div className="space-y-4">
@@ -274,7 +295,8 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
                 <div className="absolute left-6 top-16 w-0.5 h-8 bg-gray-200"></div>
               )}
               
-              <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 ${getStatusColor(step.status)} transition-all duration-200 hover:shadow-lg`}>
+              <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 border-2 ${getStatusColor(step.status)} transition-all duration-200 hover:shadow-lg cursor-pointer`}
+                   onClick={() => handleStepClick(step.id, step.status)}>
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 mt-1">
                     {getStatusIcon(step.status)}
@@ -303,20 +325,16 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
                         )}
                       </div>
                       
-                      <button
-                        onClick={() => onStartStep(step.id)}
-                        disabled={step.status === 'locked'}
-                        className={`px-4 py-2 rounded-xl font-medium transition-all ${
-                          step.status === 'locked'
-                            ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
-                            : step.status === 'completed'
-                            ? 'bg-green-100 text-green-700 hover:bg-green-200'
-                            : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
-                        }`}
-                      >
+                      <div className={`px-4 py-2 rounded-xl font-medium transition-all ${
+                        step.status === 'locked'
+                          ? 'bg-gray-100 text-gray-400'
+                          : step.status === 'completed'
+                          ? 'bg-green-100 text-green-700 hover:bg-green-200'
+                          : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                      }`}>
                         {step.status === 'locked' ? 'Locked' : 
                          step.status === 'completed' ? 'Review' : 'Start'}
-                      </button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -334,6 +352,17 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Learning Paths</h2>
           <p className="text-lg text-gray-600">Follow guided paths to master important concepts step by step</p>
+          
+          {/* Development Notice */}
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-6 max-w-2xl mx-auto">
+            <div className="flex items-center justify-center space-x-2 text-blue-700">
+              <AlertCircle className="w-5 h-5" />
+              <span className="font-medium">Interactive Demo Available!</span>
+            </div>
+            <p className="text-sm text-blue-600 mt-1">
+              Click any path to explore the step-by-step learning experience.
+            </p>
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -376,8 +405,9 @@ const LearningPath: React.FC<LearningPathProps> = ({ onStartStep }) => {
                     <Star key={i} className={`w-4 h-4 ${i < 4 ? 'text-yellow-400 fill-current' : 'text-gray-300'}`} />
                   ))}
                 </div>
-                <span className="text-sm font-medium text-purple-600 group-hover:text-purple-700">
-                  Start Learning →
+                <span className="text-sm font-medium text-purple-600 group-hover:text-purple-700 flex items-center space-x-1">
+                  <span>Explore</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </span>
               </div>
             </div>

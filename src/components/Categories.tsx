@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Users, Building, DollarSign, ArrowRight } from 'lucide-react';
+import { TrendingUp, Users, Building, DollarSign, ArrowRight, CheckCircle } from 'lucide-react';
 
 interface CategoriesProps {
   selectedCategory: string;
@@ -14,11 +14,13 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
       icon: TrendingUp,
       color: 'purple',
       description: 'How money and trade work',
-      termCount: 15,
+      termCount: 3,
       gradient: 'from-purple-400 to-purple-600',
       bgGradient: 'from-purple-50 to-purple-100',
       borderColor: 'border-purple-200',
-      textColor: 'text-purple-700'
+      textColor: 'text-purple-700',
+      hoverBorder: 'hover:border-purple-300',
+      hoverShadow: 'hover:shadow-purple-100'
     },
     {
       id: 'social',
@@ -26,11 +28,13 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
       icon: Users,
       color: 'blue',
       description: 'How people live together',
-      termCount: 12,
+      termCount: 3,
       gradient: 'from-blue-400 to-blue-600',
       bgGradient: 'from-blue-50 to-blue-100',
       borderColor: 'border-blue-200',
-      textColor: 'text-blue-700'
+      textColor: 'text-blue-700',
+      hoverBorder: 'hover:border-blue-300',
+      hoverShadow: 'hover:shadow-blue-100'
     },
     {
       id: 'government',
@@ -38,11 +42,13 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
       icon: Building,
       color: 'teal',
       description: 'How countries are run',
-      termCount: 18,
+      termCount: 3,
       gradient: 'from-teal-400 to-teal-600',
       bgGradient: 'from-teal-50 to-teal-100',
       borderColor: 'border-teal-200',
-      textColor: 'text-teal-700'
+      textColor: 'text-teal-700',
+      hoverBorder: 'hover:border-teal-300',
+      hoverShadow: 'hover:shadow-teal-100'
     },
     {
       id: 'money',
@@ -50,13 +56,37 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
       icon: DollarSign,
       color: 'orange',
       description: 'Understanding money basics',
-      termCount: 10,
+      termCount: 3,
       gradient: 'from-orange-400 to-orange-600',
       bgGradient: 'from-orange-50 to-orange-100',
       borderColor: 'border-orange-200',
-      textColor: 'text-orange-700'
+      textColor: 'text-orange-700',
+      hoverBorder: 'hover:border-orange-300',
+      hoverShadow: 'hover:shadow-orange-100'
     }
   ];
+
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    
+    // Scroll to results
+    setTimeout(() => {
+      const element = document.querySelector('[data-search-results]');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const handleShowAll = () => {
+    setSelectedCategory('all');
+    setTimeout(() => {
+      const element = document.querySelector('[data-search-results]');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -64,6 +94,21 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-6">Explore by Category</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">Choose a topic to start your learning adventure! Each category is packed with engaging content designed just for you.</p>
+          
+          {/* Show All Button */}
+          <div className="mt-8">
+            <button
+              onClick={handleShowAll}
+              className={`px-6 py-3 rounded-2xl font-semibold transition-all duration-300 ${
+                selectedCategory === 'all'
+                  ? 'bg-gradient-to-r from-gray-600 to-gray-700 text-white shadow-lg'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {selectedCategory === 'all' && <CheckCircle className="w-5 h-5 inline mr-2" />}
+              Show All Categories
+            </button>
+          </div>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -74,11 +119,11 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
             return (
               <div
                 key={category.id}
-                onClick={() => setSelectedCategory(category.id)}
+                onClick={() => handleCategoryClick(category.id)}
                 className={`group relative p-8 rounded-3xl cursor-pointer transition-all duration-500 hover:-translate-y-3 hover:shadow-2xl ${
                   isSelected 
-                    ? `bg-gradient-to-br ${category.gradient} text-white shadow-2xl shadow-${category.color}-300 scale-105` 
-                    : `bg-gradient-to-br ${category.bgGradient} border-2 ${category.borderColor} hover:border-${category.color}-300 hover:shadow-xl hover:shadow-${category.color}-100`
+                    ? `bg-gradient-to-br ${category.gradient} text-white shadow-2xl scale-105` 
+                    : `bg-gradient-to-br ${category.bgGradient} border-2 ${category.borderColor} ${category.hoverBorder} hover:shadow-xl ${category.hoverShadow}`
                 }`}
               >
                 {/* Background Pattern */}
@@ -136,7 +181,7 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
                 {/* Selection Indicator */}
                 {isSelected && (
                   <div className="absolute -top-2 -right-2 w-6 h-6 bg-white rounded-full flex items-center justify-center shadow-lg">
-                    <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    <CheckCircle className="w-4 h-4 text-green-500" />
                   </div>
                 )}
               </div>
@@ -148,7 +193,7 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
         <div className="mt-16 bg-white/80 backdrop-blur-sm rounded-3xl p-8 border border-gray-200 shadow-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">55</div>
+              <div className="text-3xl font-bold text-purple-600 mb-2">12</div>
               <div className="text-gray-600 font-medium">Total Terms</div>
             </div>
             <div>
@@ -156,8 +201,8 @@ const Categories: React.FC<CategoriesProps> = ({ selectedCategory, setSelectedCa
               <div className="text-gray-600 font-medium">Categories</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-600 mb-2">150+</div>
-              <div className="text-gray-600 font-medium">Examples</div>
+              <div className="text-3xl font-bold text-teal-600 mb-2">100%</div>
+              <div className="text-gray-600 font-medium">Working Features</div>
             </div>
             <div>
               <div className="text-3xl font-bold text-orange-600 mb-2">3</div>

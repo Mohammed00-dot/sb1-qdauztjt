@@ -42,10 +42,15 @@ function AppContent() {
     setShowAuth(true);
   };
 
+  const handleShowProfile = () => {
+    // For now, show auth modal since we don't have real authentication
+    handleShowAuth('login');
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-teal-50">
       <Header 
-        onShowProfile={() => setShowProfile(true)}
+        onShowProfile={handleShowProfile}
         onShowAuth={handleShowAuth}
         onNavigate={setCurrentView}
         currentView={currentView}
@@ -64,11 +69,13 @@ function AppContent() {
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-          <FeaturedTerms 
-            searchTerm={searchTerm}
-            selectedCategory={selectedCategory}
-            onStartQuiz={handleStartQuiz}
-          />
+          <div data-search-results>
+            <FeaturedTerms 
+              searchTerm={searchTerm}
+              selectedCategory={selectedCategory}
+              onStartQuiz={handleStartQuiz}
+            />
+          </div>
           <ProgressSection />
         </>
       ) : (

@@ -26,7 +26,8 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
     return matchesSearch && matchesCategory;
   });
 
-  const toggleFavorite = (id: number) => {
+  const toggleFavorite = (id: number, event: React.MouseEvent) => {
+    event.stopPropagation();
     const newFavorites = new Set(favorites);
     if (newFavorites.has(id)) {
       newFavorites.delete(id);
@@ -34,6 +35,24 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
       newFavorites.add(id);
     }
     setFavorites(newFavorites);
+    
+    // Show feedback
+    const action = newFavorites.has(id) ? 'added to' : 'removed from';
+    alert(`Term ${action} favorites! (Feature will save to database when backend is connected)`);
+  };
+
+  const handleExpandTerm = (termId: number, event: React.MouseEvent) => {
+    event.stopPropagation();
+    setExpandedTerm(expandedTerm === termId ? null : termId);
+  };
+
+  const handleQuizStart = (termId: number, termTitle: string, event: React.MouseEvent) => {
+    event.stopPropagation();
+    if (onStartQuiz) {
+      onStartQuiz(termId, termTitle);
+    } else {
+      alert(`Quiz for "${termTitle}" will be available when backend is connected!`);
+    }
   };
 
   const getDifficultyColor = (level: string) => {
@@ -74,7 +93,7 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
           {filteredTerms.length > 0 && (
             <div className="inline-flex items-center space-x-2 bg-gradient-to-r from-purple-100 to-blue-100 px-4 py-2 rounded-full text-purple-700 font-medium">
               <Award className="w-4 h-4" />
-              <span>Ready to boost your knowledge?</span>
+              <span>Click any term to explore more details!</span>
             </div>
           )}
         </div>
@@ -83,7 +102,8 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
           {filteredTerms.map((term) => (
             <div
               key={term.id}
-              className="group bg-white/90 backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-100 hover:shadow-2xl hover:shadow-purple-100 transition-all duration-500 hover:-translate-y-2 hover:border-purple-200"
+              className="group bg-white/90 backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-100 hover:shadow-2xl hover:shadow-purple-100 transition-all duration-500 hover:-translate-y-2 hover:border-purple-200 cursor-pointer"
+              onClick={() => setExpandedTerm(expandedTerm === term.id ? null : term.id)}
             >
               {/* Header */}
               <div className="flex items-start justify-between mb-6">
@@ -102,7 +122,7 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
                 </div>
                 
                 <button
-                  onClick={() => toggleFavorite(term.id)}
+                  onClick={(e) => toggleFavorite(term.id, e)}
                   className={`p-3 rounded-full transition-all duration-300 hover:scale-110 ${
                     favorites.has(term.id)
                       ? 'bg-red-100 text-red-500 hover:bg-red-200 shadow-lg shadow-red-100'
@@ -144,7 +164,7 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
                 </div>
                 
                 <button
-                  onClick={() => setExpandedTerm(expandedTerm === term.id ? null : term.id)}
+                  onClick={(e) => handleExpandTerm(term.id, e)}
                   className="flex items-center space-x-2 text-purple-600 hover:text-purple-700 font-semibold transition-colors"
                 >
                   <BookOpen className="w-4 h-4" />
@@ -154,15 +174,13 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
               </div>
 
               {/* Quiz Button */}
-              {onStartQuiz && (
-                <button
-                  onClick={() => onStartQuiz(term.id, term.title)}
-                  className="w-full flex items-center justify-center space-x-3 px-6 py-4 bg-gradient-to-r from-teal-500 to-blue-500 text-white rounded-2xl hover:from-teal-600 hover:to-blue-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 mb-6"
-                >
-                  <Play className="w-5 h-5" />
-                  <span>Take Quiz</span>
-                </button>
-              )}
+              <button
+                onClick={(e) => handleQuizStart(term.id, term.title, e)}
+                className="w-full flex items-center justify-center space-x-3 px-6 py-4 bg-gradient-to-r from-teal-500 to-blue-500 text-white rounded-2xl hover:from-teal-600 hover:to-blue-600 transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-xl hover:-translate-y-1 mb-6"
+              >
+                <Play className="w-5 h-5" />
+                <span>Take Quiz</span>
+              </button>
 
               {/* Expanded Content */}
               {expandedTerm === term.id && (
@@ -200,8 +218,8 @@ const FeaturedTerms: React.FC<FeaturedTermsProps> = ({
             </p>
             <button 
               onClick={() => {
-                setSearchTerm('');
-                setSelectedCategory('all');
+                // This would need to be passed down as props in a real implementation
+                window.location.reload();
               }}
               className="px-8 py-3 bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-2xl font-semibold hover:from-purple-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1"
             >

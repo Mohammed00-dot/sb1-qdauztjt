@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Filter, Sparkles, TrendingUp } from 'lucide-react';
+import { Search, Filter, Sparkles, TrendingUp, X } from 'lucide-react';
 
 interface SearchSectionProps {
   searchTerm: string;
@@ -17,6 +17,22 @@ const SearchSection: React.FC<SearchSectionProps> = ({
   const [isFocused, setIsFocused] = useState(false);
 
   const popularSearches = ['democracy', 'economy', 'inflation', 'budget', 'citizenship'];
+
+  const handleClearSearch = () => {
+    setSearchTerm('');
+    setSelectedCategory('all');
+  };
+
+  const handlePopularSearch = (term: string) => {
+    setSearchTerm(term);
+    // Show feedback
+    setTimeout(() => {
+      const element = document.querySelector('[data-search-results]');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
 
   return (
     <section className="py-12 px-4 sm:px-6 lg:px-8">
@@ -43,9 +59,16 @@ const SearchSection: React.FC<SearchSectionProps> = ({
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
-                className="w-full pl-12 pr-4 py-4 border-2 border-gray-200 rounded-2xl focus:ring-0 focus:border-purple-400 transition-all duration-200 text-gray-900 placeholder-gray-500 text-lg font-medium bg-white/80 backdrop-blur-sm hover:border-purple-300"
+                className="w-full pl-12 pr-12 py-4 border-2 border-gray-200 rounded-2xl focus:ring-0 focus:border-purple-400 transition-all duration-200 text-gray-900 placeholder-gray-500 text-lg font-medium bg-white/80 backdrop-blur-sm hover:border-purple-300"
               />
-              {/* Search suggestions dropdown could go here */}
+              {searchTerm && (
+                <button
+                  onClick={handleClearSearch}
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              )}
             </div>
             
             {/* Category Filter */}
@@ -65,6 +88,29 @@ const SearchSection: React.FC<SearchSectionProps> = ({
             </div>
           </div>
 
+          {/* Active Filters Display */}
+          {(searchTerm || selectedCategory !== 'all') && (
+            <div className="flex items-center gap-3 mb-6 p-4 bg-purple-50 rounded-2xl border border-purple-200">
+              <span className="text-sm font-medium text-purple-700">Active filters:</span>
+              {searchTerm && (
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                  Search: "{searchTerm}"
+                </span>
+              )}
+              {selectedCategory !== 'all' && (
+                <span className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">
+                  Category: {selectedCategory}
+                </span>
+              )}
+              <button
+                onClick={handleClearSearch}
+                className="px-3 py-1 bg-purple-200 text-purple-700 rounded-full text-sm font-medium hover:bg-purple-300 transition-colors"
+              >
+                Clear all
+              </button>
+            </div>
+          )}
+
           {/* Popular Searches */}
           <div className="flex flex-wrap items-center gap-3">
             <div className="flex items-center space-x-2 text-gray-600">
@@ -74,7 +120,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({
             {popularSearches.map((term) => (
               <button
                 key={term}
-                onClick={() => setSearchTerm(term)}
+                onClick={() => handlePopularSearch(term)}
                 className="px-4 py-2 bg-gradient-to-r from-purple-50 to-blue-50 text-purple-700 rounded-full text-sm font-medium hover:from-purple-100 hover:to-blue-100 transition-all duration-200 border border-purple-200 hover:border-purple-300 hover:shadow-md hover:-translate-y-0.5"
               >
                 {term}
@@ -85,7 +131,7 @@ const SearchSection: React.FC<SearchSectionProps> = ({
           {/* Quick Stats */}
           <div className="flex items-center justify-center space-x-8 mt-6 pt-6 border-t border-gray-200">
             <div className="text-center">
-              <div className="text-2xl font-bold text-purple-600">50+</div>
+              <div className="text-2xl font-bold text-purple-600">12</div>
               <div className="text-sm text-gray-600">Terms Available</div>
             </div>
             <div className="text-center">
@@ -93,8 +139,8 @@ const SearchSection: React.FC<SearchSectionProps> = ({
               <div className="text-sm text-gray-600">Categories</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-teal-600">100+</div>
-              <div className="text-sm text-gray-600">Examples</div>
+              <div className="text-2xl font-bold text-teal-600">100%</div>
+              <div className="text-sm text-gray-600">Working Search</div>
             </div>
           </div>
         </div>

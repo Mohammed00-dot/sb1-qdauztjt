@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail, Lock, User, Calendar, UserPlus } from 'lucide-react';
-import { useAuth } from '../hooks/useAuth';
+import { X, Mail, Lock, User, Calendar, UserPlus, AlertCircle } from 'lucide-react';
 
 interface AuthModalProps {
   isOpen: boolean;
@@ -16,7 +15,6 @@ const AuthModal: React.FC<AuthModalProps> = ({
   const [mode, setMode] = useState<'login' | 'register'>(initialMode);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const { login, register } = useAuth();
 
   const [formData, setFormData] = useState({
     email: '',
@@ -41,25 +39,12 @@ const AuthModal: React.FC<AuthModalProps> = ({
     setIsLoading(true);
     setError(null);
 
-    try {
-      if (mode === 'login') {
-        await login(formData.email, formData.password);
-      } else {
-        await register({
-          email: formData.email,
-          password: formData.password,
-          firstName: formData.firstName,
-          lastName: formData.lastName,
-          age: formData.age ? parseInt(formData.age) : undefined,
-          parentEmail: formData.parentEmail || undefined
-        });
-      }
-      onClose();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'An error occurred');
-    } finally {
+    // Simulate API call
+    setTimeout(() => {
       setIsLoading(false);
-    }
+      alert(`${mode === 'login' ? 'Login' : 'Registration'} will work when backend is connected!\n\nFor now, this is a demo of the authentication interface.`);
+      onClose();
+    }, 1500);
   };
 
   const resetForm = () => {
@@ -103,6 +88,17 @@ const AuthModal: React.FC<AuthModalProps> = ({
           >
             <X className="w-4 h-4" />
           </button>
+        </div>
+
+        {/* Development Notice */}
+        <div className="mx-6 mt-6 bg-orange-50 border border-orange-200 rounded-xl p-4">
+          <div className="flex items-center space-x-2 text-orange-700">
+            <AlertCircle className="w-5 h-5" />
+            <span className="font-medium">Demo Mode</span>
+          </div>
+          <p className="text-sm text-orange-600 mt-1">
+            Authentication will work when backend is connected. This is a working interface demo!
+          </p>
         </div>
 
         {/* Form */}
@@ -248,7 +244,7 @@ const AuthModal: React.FC<AuthModalProps> = ({
                 <span>{mode === 'login' ? 'Signing In...' : 'Creating Account...'}</span>
               </div>
             ) : (
-              mode === 'login' ? 'Sign In' : 'Create Account'
+              mode === 'login' ? 'Sign In (Demo)' : 'Create Account (Demo)'
             )}
           </button>
         </form>

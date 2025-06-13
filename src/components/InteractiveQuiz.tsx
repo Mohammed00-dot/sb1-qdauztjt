@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, XCircle, RotateCcw, Trophy, ArrowRight, ArrowLeft } from 'lucide-react';
+import { CheckCircle, XCircle, RotateCcw, Trophy, ArrowRight, ArrowLeft, AlertCircle } from 'lucide-react';
 
 interface QuizQuestion {
   id: number;
@@ -152,6 +152,17 @@ const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
               </p>
             </div>
             
+            {/* Development Notice */}
+            <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 mb-6">
+              <div className="flex items-center space-x-2 text-orange-700">
+                <AlertCircle className="w-5 h-5" />
+                <span className="font-medium">Development Mode</span>
+              </div>
+              <p className="text-sm text-orange-600 mt-1">
+                Quiz results will be saved to your profile when backend is connected!
+              </p>
+            </div>
+            
             <div className="flex gap-3">
               <button
                 onClick={handleRetakeQuiz}
@@ -193,6 +204,17 @@ const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
           </button>
         </div>
 
+        {/* Development Notice */}
+        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 mb-6">
+          <div className="flex items-center space-x-2 text-blue-700">
+            <AlertCircle className="w-5 h-5" />
+            <span className="font-medium">Demo Quiz</span>
+          </div>
+          <p className="text-sm text-blue-600 mt-1">
+            This is a working demo! Real quizzes will be loaded from the database.
+          </p>
+        </div>
+
         {/* Progress Bar */}
         <div className="w-full bg-gray-200 rounded-full h-2 mb-8">
           <div 
@@ -223,7 +245,7 @@ const InteractiveQuiz: React.FC<InteractiveQuizProps> = ({
                 if (selectedAnswer === index) {
                   buttonClass += "border-purple-500 bg-purple-50 text-purple-700";
                 } else {
-                  buttonClass += "border-gray-200 hover:border-purple-300 hover:bg-purple-50";
+                  buttonClass += "border-gray-200 hover:border-purple-300 hover:bg-purple-50 cursor-pointer";
                 }
               }
 
