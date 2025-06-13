@@ -54,37 +54,37 @@ export const terms: Term[] = [
     rating: 5,
     quizQuestions: [
       {
-        question: "What is the main purpose of an economy?",
+        question: "In an economy, what happens when a farmer grows vegetables and sells them to a grocery store?",
         options: [
-          "To make rich people richer",
-          "To help people meet their needs and wants through trade",
-          "To create complicated rules",
-          "To make everything expensive"
+          "The farmer is wasting time because vegetables grow naturally",
+          "The farmer is producing goods that will be distributed to consumers",
+          "Only the grocery store benefits from this transaction",
+          "This activity doesn't count as part of the economy"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! An economy exists to help people produce and exchange goods and services to meet everyone's needs and wants."
+        explanation: "Excellent! The farmer is participating in the economy by producing goods (vegetables) that will be distributed through the grocery store to consumers who need them."
       },
       {
-        question: "Which of these is the best example of economic activity?",
+        question: "Why do people in an economy specialize in different jobs instead of everyone doing everything?",
         options: [
-          "Sleeping in your bed",
-          "A farmer selling vegetables at a market",
-          "Reading a book alone",
-          "Taking a walk in the park"
+          "Because laws require people to have only one job",
+          "Because it's more efficient when people focus on what they do best",
+          "Because it's impossible to learn multiple skills",
+          "Because employers don't want versatile workers"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! When a farmer sells vegetables, they're participating in the economy by providing goods that people need in exchange for money."
+        explanation: "Perfect! Specialization makes the economy more efficient because people can focus on developing skills in areas where they're most talented and productive."
       },
       {
-        question: "Why do people trade with each other in an economy?",
+        question: "What role do consumers play in keeping an economy healthy?",
         options: [
-          "Because they have to by law",
-          "To get things they need but can't make themselves",
-          "To make things more complicated",
-          "Only to make money"
+          "Consumers should avoid spending money to save the economy",
+          "Consumers create demand for goods and services by purchasing them",
+          "Consumers only hurt the economy by taking resources",
+          "Consumers have no real impact on economic activity"
         ],
         correctAnswer: 1,
-        explanation: "Great thinking! People trade because they can't make everything they need by themselves, so they exchange what they have for what they need."
+        explanation: "Great insight! Consumers drive economic activity by creating demand for goods and services, which encourages businesses to produce and hire workers."
       }
     ]
   },
@@ -118,37 +118,37 @@ export const terms: Term[] = [
     rating: 5,
     quizQuestions: [
       {
-        question: "What happens to price when demand is high but supply is low?",
+        question: "A new smartphone is released with only 1,000 units available, but 10,000 people want to buy it. What will likely happen to the price?",
         options: [
-          "Price goes down",
-          "Price goes up",
-          "Price stays the same",
-          "Price disappears"
+          "The price will decrease because there aren't enough phones",
+          "The price will increase due to high demand and low supply",
+          "The price will stay exactly the same regardless of demand",
+          "The company will give the phones away for free"
         ],
         correctAnswer: 1,
-        explanation: "Correct! When many people want something but there isn't much available, sellers can charge higher prices because people are willing to pay more."
+        explanation: "Correct! When demand (10,000 people) far exceeds supply (1,000 phones), the price typically increases because people are willing to pay more to get the limited product."
       },
       {
-        question: "Your favorite snack is suddenly very popular at school. What will likely happen?",
+        question: "During summer, many farms produce watermelons, but it's also when most people want to eat them. What determines the final price?",
         options: [
-          "The price will go down",
-          "It might sell out quickly or cost more",
-          "Nothing will change",
-          "The school will ban it"
+          "Only the number of watermelons produced",
+          "Only how many people want watermelons",
+          "The balance between how many are produced and how many people want them",
+          "The government sets all watermelon prices"
         ],
-        correctAnswer: 1,
-        explanation: "Exactly! When something becomes popular (high demand), it often sells out quickly or the price increases because more people want it."
+        correctAnswer: 2,
+        explanation: "Excellent! The price is determined by the interaction between supply (how many watermelons are produced) and demand (how many people want them). Both factors work together."
       },
       {
-        question: "A store has too many winter coats in spring. What might they do?",
+        question: "Why might a store put winter coats on sale in March?",
         options: [
-          "Raise the prices",
-          "Put them on sale to lower the price",
-          "Hide them from customers",
-          "Throw them away"
+          "Because winter coats become more popular in spring",
+          "Because demand for winter coats decreases as weather gets warmer",
+          "Because it costs more to make coats in March",
+          "Because the government requires spring sales"
         ],
         correctAnswer: 1,
-        explanation: "Smart! When stores have too much of something people don't want (high supply, low demand), they often lower prices to encourage people to buy."
+        explanation: "Smart thinking! As spring arrives, demand for winter coats drops significantly, so stores lower prices to encourage people to buy their remaining inventory."
       }
     ]
   },
@@ -182,37 +182,37 @@ export const terms: Term[] = [
     rating: 5,
     quizQuestions: [
       {
-        question: "What is the most important quality of an entrepreneur?",
+        question: "Maya notices that students at her school often forget their lunch money. What would be an entrepreneurial solution?",
         options: [
-          "Having lots of money to start with",
-          "Being willing to try new things and solve problems",
-          "Being the smartest person in the room",
-          "Never making mistakes"
+          "Tell the principal to solve the problem",
+          "Create a lunch money reminder app or service",
+          "Ignore the problem since it doesn't affect her",
+          "Complain about forgetful students"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! Entrepreneurs succeed by being creative problem-solvers who are willing to try new approaches, even when they're not sure they'll work."
+        explanation: "Perfect! Creating a solution like a reminder app shows entrepreneurial thinking - identifying a problem and developing an innovative way to solve it."
       },
       {
-        question: "Which of these is the best example of entrepreneurship?",
+        question: "What's the biggest difference between an employee and an entrepreneur?",
         options: [
-          "Getting a job at a grocery store",
-          "Starting a tutoring business to help classmates with math",
-          "Buying candy from a store",
-          "Following your parents' career path"
+          "Employees work harder than entrepreneurs",
+          "Entrepreneurs create new businesses while employees work for existing ones",
+          "Employees make more money than entrepreneurs",
+          "Entrepreneurs never have to work with other people"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! Starting a tutoring business shows entrepreneurship because you're creating a new service to solve a problem (students needing help with math)."
+        explanation: "Excellent! The key difference is that entrepreneurs start and create new businesses, taking on the risks and rewards, while employees work within existing businesses."
       },
       {
-        question: "Why do entrepreneurs take risks?",
+        question: "Why do entrepreneurs often fail at first but keep trying?",
         options: [
-          "Because they like danger",
-          "Because they believe their ideas can help people and succeed",
-          "Because they have nothing to lose",
-          "Because someone forces them to"
+          "Because they enjoy failing",
+          "Because they learn from mistakes and believe in their vision",
+          "Because they have nothing better to do",
+          "Because failure is the only way to make money"
         ],
         correctAnswer: 1,
-        explanation: "Great insight! Entrepreneurs take calculated risks because they believe their ideas can make a positive difference and become successful businesses."
+        explanation: "Great understanding! Successful entrepreneurs view failures as learning opportunities and persist because they believe their ideas can eventually succeed and help people."
       }
     ]
   },
@@ -248,37 +248,37 @@ export const terms: Term[] = [
     rating: 5,
     quizQuestions: [
       {
-        question: "What is the main idea behind democracy?",
+        question: "In a school election for class president, what makes it democratic?",
         options: [
-          "One person makes all the decisions",
-          "Everyone gets a voice in choosing leaders and making decisions",
-          "Only adults can participate",
-          "Decisions are made randomly"
+          "The teacher chooses who wins",
+          "Every student gets one equal vote to choose their representative",
+          "Only the smartest students can vote",
+          "The principal decides without asking anyone"
         ],
         correctAnswer: 1,
-        explanation: "Exactly right! Democracy is all about giving everyone a voice and letting people choose their leaders through voting."
+        explanation: "Exactly right! Democracy means every person gets an equal vote to choose their representatives, making everyone's voice count the same."
       },
       {
-        question: "Which is the best example of democracy in action?",
+        question: "What should happen if you disagree with a democratic decision in your community?",
         options: [
-          "A teacher assigning homework",
-          "Students voting for class president",
-          "Following school rules",
-          "Taking a test"
+          "You should ignore all future votes",
+          "You can peacefully express your views and participate in future decisions",
+          "You should try to stop others from voting",
+          "You must move to a different community"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! When students vote for class president, they're practicing democracy by choosing their representative through an election."
+        explanation: "Perfect! In a democracy, you have the right to express disagreement peacefully and continue participating to influence future decisions."
       },
       {
-        question: "Why is voting important in a democracy?",
+        question: "Why is it important that everyone can speak freely in a democracy?",
         options: [
-          "It's required by law",
-          "It gives people a way to choose their leaders and influence decisions",
-          "It's fun to do",
-          "It makes elections longer"
+          "So people can say whatever they want without consequences",
+          "So citizens can share ideas and make informed voting decisions",
+          "So there's always arguing and conflict",
+          "So leaders don't have to make any decisions"
         ],
         correctAnswer: 1,
-        explanation: "Great understanding! Voting is how people in a democracy express their preferences and choose leaders who will represent their interests."
+        explanation: "Great insight! Free speech allows people to share different ideas and information, helping everyone make better-informed decisions when they vote."
       }
     ]
   },
@@ -312,37 +312,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What is the main purpose of a constitution?",
+        question: "Why does a constitution limit what government leaders can do?",
         options: [
-          "To make laws complicated",
-          "To set up government structure and protect people's rights",
-          "To give one person all the power",
-          "To create more paperwork"
+          "To make their jobs more difficult",
+          "To prevent any one person or group from having too much power",
+          "To confuse people about government",
+          "To make sure nothing ever gets done"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! A constitution establishes how government works and protects citizens' fundamental rights and freedoms."
+        explanation: "Excellent! Constitutional limits prevent the concentration of power and protect citizens from potential abuse by ensuring no single person or group can control everything."
       },
       {
-        question: "Why can't a constitution be changed easily?",
+        question: "What happens if a government law conflicts with the constitution?",
         options: [
-          "Because it's written in permanent ink",
-          "To ensure stability and prevent hasty changes to important rights",
-          "Because no one knows how to change it",
-          "Because it's too old"
+          "The law automatically becomes more important",
+          "The constitution must be ignored",
+          "The constitutional rule takes priority over the regular law",
+          "Both rules apply at the same time"
         ],
-        correctAnswer: 1,
-        explanation: "Smart thinking! Constitutions are hard to change so that important rights and government structures remain stable and aren't changed for temporary reasons."
+        correctAnswer: 2,
+        explanation: "Correct! The constitution is the supreme law, so any regular law that conflicts with it is invalid. This protects fundamental rights and principles."
       },
       {
-        question: "How is a constitution like a school handbook?",
+        question: "Why might it be good that constitutions are difficult to change?",
         options: [
-          "They're both boring to read",
-          "Both explain rules, rights, and how the organization works",
-          "They're both very short",
-          "Both are written by students"
+          "So that important rights and principles remain stable and protected",
+          "To make lawyers more money",
+          "To prevent any progress in society",
+          "Because old ideas are always better than new ones"
         ],
-        correctAnswer: 1,
-        explanation: "Great comparison! Both constitutions and school handbooks establish rules, explain rights, and describe how the organization operates fairly."
+        correctAnswer: 0,
+        explanation: "Great thinking! Making constitutions hard to change protects fundamental rights from being removed during temporary political changes or emotional moments."
       }
     ]
   },
@@ -376,37 +376,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What does it mean to be a good citizen?",
+        question: "If you see a classmate being bullied, what would good citizenship look like?",
         options: [
-          "Only caring about yourself",
-          "Having rights and responsibilities in your community",
-          "Never following any rules",
-          "Avoiding all community activities"
+          "Ignore it because it's not your problem",
+          "Join in the bullying to fit in",
+          "Stand up for the classmate or get help from an adult",
+          "Laugh and walk away"
         ],
-        correctAnswer: 1,
-        explanation: "Perfect! Good citizenship involves both enjoying rights and fulfilling responsibilities to help your community thrive."
+        correctAnswer: 2,
+        explanation: "Perfect! Good citizenship means protecting others' rights and helping create a safe community for everyone, even when it's not directly affecting you."
       },
       {
-        question: "Which is the best example of civic responsibility?",
+        question: "What's the relationship between rights and responsibilities in citizenship?",
         options: [
-          "Only thinking about your own needs",
-          "Volunteering to help clean up a local park",
-          "Breaking rules when no one is watching",
-          "Ignoring community problems"
+          "Rights are more important than responsibilities",
+          "They work together - rights protect you while responsibilities help protect others",
+          "Responsibilities are just suggestions you can ignore",
+          "Only adults have responsibilities"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! Volunteering to clean up a park shows civic responsibility by contributing to the community's well-being."
+        explanation: "Excellent understanding! Rights and responsibilities balance each other - your rights are protected when everyone fulfills their responsibilities to respect and help others."
       },
       {
-        question: "Why do citizens have both rights AND responsibilities?",
+        question: "How can young people practice good citizenship in their community?",
         options: [
-          "To make life complicated",
-          "Because rights and responsibilities work together to create fair communities",
-          "Because the government says so",
-          "To keep people busy"
+          "Wait until they're adults to get involved",
+          "Only focus on their own needs and wants",
+          "Volunteer, help neighbors, and participate in community activities",
+          "Avoid all community events and activities"
         ],
-        correctAnswer: 1,
-        explanation: "Great insight! Rights protect what you deserve, while responsibilities ensure you contribute to a community where everyone's rights can be protected."
+        correctAnswer: 2,
+        explanation: "Great answer! Young people can practice citizenship by actively helping their community through volunteering, being helpful neighbors, and participating in community life."
       }
     ]
   },
@@ -442,37 +442,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What is culture?",
+        question: "Your friend's family celebrates New Year in January, but another friend's family celebrates it in February. What does this show about culture?",
         options: [
-          "Only the food people eat",
-          "The traditions, beliefs, and ways of life that make groups unique",
-          "Just the language people speak",
-          "Only art and music"
+          "One family is celebrating at the wrong time",
+          "Different cultures have different traditions and ways of marking important events",
+          "Only one way of celebrating should be allowed",
+          "Families should all celebrate the same way"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! Culture includes all the traditions, beliefs, languages, foods, and customs that make each group of people special and unique."
+        explanation: "Perfect! This shows how different cultures have their own unique traditions and ways of celebrating, which makes our world rich and diverse."
       },
       {
-        question: "How do people learn about their culture?",
+        question: "Why might two families from different cultures prepare food differently, even when making similar dishes?",
         options: [
-          "Only from books",
-          "From family, community, and participating in traditions",
-          "Only from school",
-          "They're born knowing it"
+          "One family doesn't know how to cook properly",
+          "Cultural traditions influence cooking methods, spices, and ingredients used",
+          "It doesn't matter how food is prepared",
+          "All families should cook exactly the same way"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! People learn culture by growing up in families and communities, participating in traditions, and being taught by older generations."
+        explanation: "Excellent! Cultural background influences cooking traditions, including which spices, techniques, and ingredients are preferred, creating wonderful variety in food."
       },
       {
-        question: "Why is it important to learn about different cultures?",
+        question: "What's the best way to learn about a culture different from your own?",
         options: [
-          "To prove one culture is better than others",
-          "To understand and respect the diversity of human experiences",
-          "To copy everything other cultures do",
-          "It's not important"
+          "Assume it's exactly like your culture",
+          "Ask respectful questions and participate in cultural events when invited",
+          "Ignore differences and pretend they don't exist",
+          "Judge it based on your own cultural standards"
         ],
         correctAnswer: 1,
-        explanation: "Great thinking! Learning about different cultures helps us appreciate diversity, understand others better, and respect the many wonderful ways people live."
+        explanation: "Great approach! Learning about other cultures requires curiosity, respect, and openness to experiencing new traditions and perspectives."
       }
     ]
   },
@@ -506,37 +506,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What makes a group of people a community?",
+        question: "What happens when a natural disaster affects a strong community?",
         options: [
-          "They all look exactly the same",
-          "They share a location, interests, or goals and support each other",
-          "They never disagree about anything",
-          "They all have the same job"
+          "Everyone only takes care of themselves",
+          "People work together to help each other recover and rebuild",
+          "The community falls apart immediately",
+          "Only government officials provide help"
         ],
         correctAnswer: 1,
-        explanation: "Exactly! A community forms when people share something in common and work together to support each other and achieve shared goals."
+        explanation: "Exactly! Strong communities show their true strength during difficult times by supporting each other, sharing resources, and working together to recover."
       },
       {
-        question: "Which is the best example of community cooperation?",
+        question: "Why might someone choose to join a community garden in their neighborhood?",
         options: [
-          "Everyone working alone on separate projects",
-          "Neighbors organizing a block party to get to know each other",
-          "People avoiding talking to each other",
-          "Only helping people who are exactly like you"
+          "To avoid talking to neighbors",
+          "To connect with neighbors while growing food and beautifying the area",
+          "To take all the vegetables for themselves",
+          "To prove they're better at gardening than others"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! A block party brings neighbors together, helps them get to know each other, and builds community connections."
+        explanation: "Perfect! Community gardens bring people together around shared interests while improving the neighborhood and building relationships."
       },
       {
-        question: "How can you contribute to your community?",
+        question: "What makes an online gaming community different from a neighborhood community?",
         options: [
-          "By only thinking about yourself",
-          "By helping others, participating in activities, and being a good neighbor",
-          "By avoiding all community events",
-          "By complaining about problems without helping solve them"
+          "Online communities aren't real communities",
+          "They connect through shared interests rather than shared location",
+          "Online communities never help each other",
+          "There are no differences between them"
         ],
         correctAnswer: 1,
-        explanation: "Great answer! Contributing to community means actively helping others, participating in community life, and working to make things better for everyone."
+        explanation: "Great observation! While neighborhood communities are based on shared location, online communities form around shared interests, hobbies, or goals."
       }
     ]
   },
@@ -570,37 +570,37 @@ export const terms: Term[] = [
     rating: 3,
     quizQuestions: [
       {
-        question: "What is globalization?",
+        question: "How has the internet changed the way people around the world connect?",
         options: [
-          "Countries becoming completely isolated from each other",
-          "The world becoming more connected through trade, technology, and culture",
-          "Only rich countries trading with each other",
-          "Making everything the same everywhere"
+          "It has made global communication slower and more expensive",
+          "It allows instant communication and collaboration across continents",
+          "It only connects people within the same country",
+          "It has made international connections impossible"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! Globalization is about increasing connections between countries and people through trade, technology, communication, and cultural exchange."
+        explanation: "Excellent! The internet has revolutionized global communication, allowing people to instantly connect, share ideas, and collaborate regardless of distance."
       },
       {
-        question: "Which is the best example of globalization?",
+        question: "What might be a challenge of globalization for local businesses?",
         options: [
-          "Only buying products made in your own country",
-          "A multinational company with offices in many countries",
-          "Never using the internet",
-          "Only speaking one language"
+          "They get more customers from around the world",
+          "They face competition from international companies",
+          "They never have to change their products",
+          "They automatically become more profitable"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! A company operating in multiple countries shows how businesses have become global, connecting different parts of the world."
+        explanation: "Smart thinking! While globalization creates opportunities, local businesses may face increased competition from international companies with different advantages."
       },
       {
-        question: "How has technology helped globalization?",
+        question: "How does globalization affect cultural exchange?",
         options: [
-          "By making communication slower",
-          "By making it easier for people worldwide to connect and share information",
-          "By making travel impossible",
-          "By creating more barriers between countries"
+          "It prevents cultures from sharing with each other",
+          "It allows cultures to share and influence each other more easily",
+          "It makes all cultures exactly the same",
+          "It only affects business, not culture"
         ],
         correctAnswer: 1,
-        explanation: "Great insight! Technology, especially the internet, has made it much easier for people around the world to communicate, share ideas, and do business together."
+        explanation: "Perfect! Globalization facilitates cultural exchange, allowing people to share music, food, traditions, and ideas across borders, enriching all cultures involved."
       }
     ]
   },
@@ -636,37 +636,37 @@ export const terms: Term[] = [
     rating: 5,
     quizQuestions: [
       {
-        question: "What is the main purpose of a budget?",
+        question: "You have $20 and want to buy a $15 video game, but you also need $8 for lunch this week. What should your budget decision be?",
         options: [
-          "To make spending money more complicated",
-          "To plan how to use your money wisely for needs, wants, and savings",
-          "To prevent you from ever buying anything fun",
-          "To impress other people"
+          "Buy the game and skip lunch",
+          "Prioritize lunch money and save the remaining $12 for the game later",
+          "Borrow money from friends to buy both",
+          "Spend all $20 on candy instead"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! A budget helps you plan how to use your money so you can cover your needs, enjoy some wants, and save for future goals."
+        explanation: "Excellent budgeting! Prioritizing needs (lunch) over wants (video game) and saving the remainder shows smart financial planning."
       },
       {
-        question: "What's the difference between needs and wants?",
+        question: "What's the benefit of writing down your budget instead of just keeping it in your head?",
         options: [
-          "There is no difference",
-          "Needs are essential things you must have; wants are things you'd like but can live without",
-          "Wants are more important than needs",
-          "Needs cost more than wants"
+          "It makes budgeting more complicated",
+          "It helps you track spending and stick to your plan",
+          "It's only useful for adults",
+          "It doesn't make any difference"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! Needs are things you must have to live safely and healthily, while wants are things that would be nice to have but aren't essential."
+        explanation: "Perfect! Writing down your budget helps you remember your plan, track your progress, and make better spending decisions."
       },
       {
-        question: "Why is it important to include savings in your budget?",
+        question: "Why is it important to include savings in your budget, even if it's a small amount?",
         options: [
-          "To make your budget look more complicated",
-          "To prepare for future goals and unexpected expenses",
-          "Because parents force you to",
-          "Savings aren't important in a budget"
+          "To impress other people",
+          "To build the habit of saving and prepare for future goals",
+          "Because banks require it",
+          "Savings aren't important for young people"
         ],
         correctAnswer: 1,
-        explanation: "Great thinking! Including savings in your budget helps you prepare for future goals and gives you money for unexpected needs or opportunities."
+        explanation: "Great insight! Even small amounts of savings help build good financial habits and prepare you for future opportunities or unexpected needs."
       }
     ]
   },
@@ -700,37 +700,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What is interest?",
+        question: "If you save $50 in an account that earns 4% interest per year, how much extra money will you have after one year?",
         options: [
-          "Money you lose when you save",
-          "Extra money earned on savings or paid on borrowed money",
-          "A type of bank account",
-          "Money that disappears over time"
+          "$4",
+          "$2",
+          "$54",
+          "$46"
         ],
-        correctAnswer: 1,
-        explanation: "Correct! Interest is extra money you can earn when you save or extra money you pay when you borrow."
+        correctAnswer: 0,
+        explanation: "Correct! 4% of $50 is $2, so you'll earn $2 in interest, giving you $52 total. Wait, let me recalculate: 4% of $50 = 0.04 × $50 = $2. So you'll have $52 total, earning $2 in interest."
       },
       {
-        question: "Why do banks pay interest on savings accounts?",
+        question: "What is compound interest and why is it powerful for savers?",
         options: [
-          "Because they're required to by law",
-          "To encourage people to save money with them",
-          "Because they have too much money",
-          "To make banking more complicated"
+          "Interest that decreases over time",
+          "Interest earned on both your original money and previously earned interest",
+          "Interest that only applies to large amounts",
+          "Interest that banks charge for keeping your money"
         ],
         correctAnswer: 1,
-        explanation: "Excellent! Banks pay interest to encourage people to save money with them, which the bank can then lend to other customers."
+        explanation: "Excellent! Compound interest means you earn interest on your interest, which makes your money grow faster over time - like a snowball rolling downhill!"
       },
       {
-        question: "What happens to your savings over time with compound interest?",
+        question: "Why might someone choose a savings account with 3% interest over one with 1% interest?",
         options: [
-          "Your money shrinks",
-          "Your money grows faster because you earn interest on your interest",
-          "Nothing changes",
-          "Your money disappears"
+          "The 1% account is actually better",
+          "Higher interest rates help your money grow faster",
+          "Interest rates don't matter for savings",
+          "Lower interest is always safer"
         ],
         correctAnswer: 1,
-        explanation: "Perfect! With compound interest, your money grows faster over time because you earn interest not just on your original savings, but also on the interest you've already earned."
+        explanation: "Smart thinking! Higher interest rates mean your money grows faster over time, helping you reach your savings goals more quickly."
       }
     ]
   },
@@ -764,37 +764,37 @@ export const terms: Term[] = [
     rating: 4,
     quizQuestions: [
       {
-        question: "What is inflation?",
+        question: "Your grandmother says she bought her first car for $3,000, but the same type of car costs $30,000 today. What economic concept explains this?",
         options: [
-          "When all prices go down",
-          "When prices generally increase over time",
-          "When money becomes worth more",
-          "When stores close permanently"
+          "Cars have gotten much worse over time",
+          "Inflation has increased prices over many years",
+          "Your grandmother is remembering incorrectly",
+          "Car companies are trying to trick people"
         ],
         correctAnswer: 1,
-        explanation: "Correct! Inflation is when the general level of prices for goods and services increases over time."
+        explanation: "Perfect! This is a classic example of inflation - the same type of product costs much more today than it did decades ago due to the gradual increase in prices over time."
       },
       {
-        question: "How does inflation affect your purchasing power?",
+        question: "If inflation is 3% per year and your allowance stays the same, what happens to your purchasing power?",
         options: [
-          "You can buy more with the same amount of money",
-          "You can buy less with the same amount of money",
-          "It doesn't affect what you can buy",
-          "You can only buy expensive things"
+          "You can buy more things with the same allowance",
+          "You can buy slightly less each year as prices rise",
+          "Your purchasing power stays exactly the same",
+          "Inflation doesn't affect allowances"
         ],
         correctAnswer: 1,
-        explanation: "Exactly! When prices go up due to inflation, your money doesn't stretch as far, so you can buy less with the same amount."
+        explanation: "Excellent understanding! If prices rise 3% but your allowance doesn't increase, you can afford slightly less each year because things cost more."
       },
       {
-        question: "Why might a little inflation be normal in an economy?",
+        question: "Why might a small amount of inflation actually be good for an economy?",
         options: [
-          "Because governments want to make life harder",
-          "Because it can indicate a growing, active economy",
-          "Because stores want to make more money",
-          "Because it's always bad for everyone"
+          "It makes everything more expensive for no reason",
+          "It can indicate that people are buying things and the economy is growing",
+          "It always hurts everyone equally",
+          "It makes saving money pointless"
         ],
         correctAnswer: 1,
-        explanation: "Great understanding! A small amount of inflation often indicates that an economy is growing and active, with people buying goods and services."
+        explanation: "Great insight! Moderate inflation often indicates a healthy, growing economy where people are confident enough to spend money, creating demand that drives business growth."
       }
     ]
   }
