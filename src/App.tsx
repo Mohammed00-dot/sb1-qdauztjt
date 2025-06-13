@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { AuthProvider } from './hooks/useAuth';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import SearchSection from './components/SearchSection';
@@ -8,14 +9,17 @@ import ProgressSection from './components/ProgressSection';
 import LearningPath from './components/LearningPath';
 import InteractiveQuiz from './components/InteractiveQuiz';
 import UserProfile from './components/UserProfile';
+import AuthModal from './components/AuthModal';
 import Footer from './components/Footer';
 
-function App() {
+function AppContent() {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [currentView, setCurrentView] = useState<'home' | 'learning-paths'>('home');
   const [showQuiz, setShowQuiz] = useState(false);
   const [showProfile, setShowProfile] = useState(false);
+  const [showAuth, setShowAuth] = useState(false);
+  const [authMode, setAuthMode] = useState<'login' | 'register'>('login');
   const [quizTerm, setQuizTerm] = useState<{ id: number; title: string } | null>(null);
 
   const handleStartQuiz = (termId: number, termTitle: string) => {
@@ -33,17 +37,23 @@ function App() {
     // Here you would navigate to the specific learning content
   };
 
+  const handleShowAuth = (mode: 'login' | 'register' = 'login') => {
+    setAuthMode(mode);
+    setShowAuth(true);
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-teal-50">
       <Header 
         onShowProfile={() => setShowProfile(true)}
+        onShowAuth={handleShowAuth}
         onNavigate={setCurrentView}
         currentView={currentView}
       />
       
       {currentView === 'home' ? (
         <>
-          <Hero />
+          <Hero onShowAuth={handleShowAuth} />
           <SearchSection 
             searchTerm={searchTerm} 
             setSearchTerm={setSearchTerm}
@@ -83,7 +93,21 @@ function App() {
         isOpen={showProfile}
         onClose={() => setShowProfile(false)}
       />
+
+      <AuthModal
+        isOpen={showAuth}
+        onClose={() => setShowAuth(false)}
+        initialMode={authMode}
+      />
     </div>
+  );
+}
+
+function App() {
+  return (
+    <AuthProvider>
+      <AppContent />
+    </AuthProvider>
   );
 }
 
