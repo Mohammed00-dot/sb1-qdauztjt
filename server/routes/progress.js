@@ -1,5 +1,5 @@
 import express from 'express';
-import { supabase } from '../index.js';
+import { supabase } from '../config/database.js';
 import { authenticateToken } from '../middleware/auth.js';
 import { validateRequest, schemas } from '../middleware/validation.js';
 
