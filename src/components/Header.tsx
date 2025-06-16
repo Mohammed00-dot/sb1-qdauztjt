@@ -25,7 +25,7 @@ const Header: React.FC<HeaderProps> = ({ onShowProfile, onShowAuth, onNavigate, 
     <>
       {/* Development Banner */}
       <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-2 px-4 relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.1"%3E%3Cpath d="M0 0h20v20H0z"/%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+        <div className="absolute inset-0 bg-header-grid-pattern opacity-20"></div>
         <div className="max-w-7xl mx-auto flex items-center justify-center space-x-2 text-sm font-medium relative">
           <AlertTriangle className="w-4 h-4 animate-pulse" />
           <span>🚧 Development Preview - Building the Future of Education 🚧</span>
