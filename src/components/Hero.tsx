@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ onShowAuth }) => {
               Learn Big Ideas
             </span>
             <span className="block bg-gradient-to-r from-purple-600 via-blue-600 to-teal-600 bg-clip-text text-transparent">
-              Simply & Beautifully
+             Presented Concisely
             </span>
           </h1>
           
